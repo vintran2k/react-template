@@ -1,0 +1,33 @@
+.Footer {
+	font-size: 1px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	// padding: 0 64em;
+	height: 60px;
+	// background: $background-800;
+	box-shadow: 4em 0 8em rgba(0, 0, 0, 0.3);
+	gap: 12em;
+
+	.copyright {
+		font-size: 12em;
+		color: $white-200;
+	}
+
+	.Footer-links {
+		display: flex;
+		gap: 4em;
+
+		.Link-logo {
+			width: 28em;
+			height: 28em;
+			cursor: pointer;
+			fill: black;
+			transition: fill 200ms;
+
+			&:hover {
+				fill: $dark-blue;
+			}
+		}
+	}
+}
