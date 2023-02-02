@@ -1,0 +1,10 @@
+.Home {
+	font-size: 1px;
+	height: 100%;
+
+	.Home-content {
+		display: flex;
+		height: calc(100vh - 96px);
+		padding: 32em 64em;
+	}
+}

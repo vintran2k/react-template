@@ -1,0 +1,28 @@
+.About {
+	height: 100%;
+	font-size: 1px;
+
+	.About-content {
+		display: flex;
+		flex-direction: column;
+		height: calc(100vh - 96px);
+		padding: 32em 64em;
+
+		h1 {
+			font-size: 28em;
+			color: white;
+			font-weight: 500;
+		}
+
+		.Content-text {
+			display: flex;
+			flex-direction: column;
+			margin-top: 12em;
+			gap: 8em;
+			p {
+				font-size: 16em;
+				color: $white-200;
+			}
+		}
+	}
+}
