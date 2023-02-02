@@ -1,11 +1,11 @@
 import React from 'react';
-import { ReactComponent as ReactLogo } from '../assets/reactLogo.svg';
+import { ReactComponent as EarthLogo } from '../assets/earthLogo.svg';
 import { NavLink } from 'react-router-dom';
 
 const Navbar = () => {
 	return (
 		<div className="Navbar">
-			<ReactLogo className="Navbar-logo"/>
+			<EarthLogo className="Navbar-logo"/>
 			<div className="Navbar-links">
 				<NavLink to="/" className={(nav) => nav.isActive ? "link link-active" : "link"}>
 					<span className="link-value">Home</span>
