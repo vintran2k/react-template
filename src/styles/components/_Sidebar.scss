@@ -56,9 +56,10 @@
 
 			.message {
 				display: flex;
+				max-width: 70%;
 				padding: 6em 12em;
 				background: $cheat-blue;
-				border-radius: 18em;
+				border-radius: 16em;
 				p {
 					font-size: 14em;
 					color: white;
@@ -74,6 +75,36 @@
 				align-self: flex-start;
 				background: $background-700;
 				box-shadow: 4em 4em 6em rgba(0, 0, 0, 0.3);
+			}
+			.loader-message {
+				width: 48em;
+				height: 33em;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				&::after {
+					content: '';
+					width: 5em;
+					height: 5em;
+					border-radius: 50%;
+					background-color: #fff;
+					box-shadow: 10em #fff, -10em 0 #fff;
+					animation: flash 0.5s ease-out infinite alternate;
+				}
+				@keyframes flash {
+					0% {
+						background-color: #FFF2;
+						box-shadow: 10em 0 #FFF2, -10em 0 #FFF;
+					}
+					50% {
+						background-color: #FFF;
+						box-shadow: 10em 0 #FFF2, -10em 0 #FFF2;
+					}
+					100% {
+						background-color: #FFF2;
+						box-shadow: 10em 0 #FFF, -10em 0 #FFF2;
+					}
+				}
 			}
 		}
 	}

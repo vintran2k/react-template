@@ -13,32 +13,47 @@ const Sidebar = () => {
 
 	const [input, setInput] = useState("");
 	const [messages, setMessages] = useState([]);
-	// const [botResponse, setBotResponse] = useState("");
 
 	const handleKeyUp = e => {
 		if (e.key === 'Enter') {
-			fetchOpenAiResponse(input);
 			setMessages(prevMessages => [...prevMessages, {
 				sender: 'user',
 				content: input
 			}]);
+			fetchOpenAiResponse(input);
 			setInput("");
 		}
 	}
 
 	const fetchOpenAiResponse = async prompt => {
+		setMessages(prevMessages => [...prevMessages, {
+			sender: 'loader',
+			content: ''
+		}]);
 		const	response = await openai.createCompletion({
 			model: "text-davinci-003",
 			prompt: prompt,
 			max_tokens: 4000,
 		});
-		console.log(response);
-		setMessages(prevMessages => [...prevMessages, {
-			sender: 'bot',
-			content: response.data.choices[0].text
-		}]);
-		console.log(messages)
+		setMessages(prevMessages => {
+			prevMessages.pop();
+			return [...prevMessages, {
+				sender: 'bot',
+				content: response.data.choices[0].text
+			}];
+		})
+		// setMessages(prevMessages => [...prevMessages, {
+		// 	sender: 'bot',
+		// 	content: response.data.choices[0].text
+		// }]);
 	}
+
+	useEffect(() => {
+		const lastMessage = document.querySelector('.message:last-child');
+		if (lastMessage) {
+			lastMessage.scrollIntoView();
+		}
+	}, [messages]);
 
 	useEffect(() => {
 		fetchOpenAiResponse("Tu es un chat bot. Envois moi un premier message.");
@@ -57,6 +72,12 @@ const Sidebar = () => {
 							return (
 								<div className="message user-message" key={index}>
 									<p>{message.content}</p>
+								</div>
+							);
+						} else if (message.sender === 'loader'){
+							return (
+								<div className="message bot-message loader-message" key={index}>
+									{/* <p>{message.content}</p> */}
 								</div>
 							);
 						} else {
