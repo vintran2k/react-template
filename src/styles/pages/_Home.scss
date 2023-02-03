@@ -6,5 +6,11 @@
 		flex-direction: column;
 		height: calc(100vh - 96px - 60px);
 		padding: 32em 64em;
+		overflow-y: auto;
+		&::-webkit-scrollbar {
+			display: none;
+		}
+		-ms-overflow-style: none;  /* IE and Edge */
+		scrollbar-width: none;  /* Firefox */
 	}
 }
