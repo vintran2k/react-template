@@ -1,5 +1,16 @@
 .Main {
 	width: 100%;
 	height: 100%;
+	display: flex;
+	justify-content: space-between;
+	position: relative;
 
+	.Main-content {
+		width: 1310rem;
+		height: 100%;
+
+		@media (max-width: $laptopL) {
+			width: 100%;
+		}
+	}
 }

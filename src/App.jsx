@@ -4,7 +4,6 @@ import Main from "./components/Main"
 import About from "./pages/About"
 
 function App() {
-
 	return (
 		<BrowserRouter>
 			<Routes>
@@ -12,7 +11,7 @@ function App() {
 					<Route path="/" element={ <Main /> } />
 					<Route path="/about" element={ <About /> } />
 				</Route>
-				<Route path="*" component={ <Home /> } />
+				{/* <Route path="*" component={ <Home /> } /> */}
 			</Routes>
 		</BrowserRouter>
 	)
