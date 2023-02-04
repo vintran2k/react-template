@@ -78,7 +78,7 @@
 			}
 			.loader-message {
 				width: 48em;
-				height: 33em;
+				min-height: 33em;
 				display: flex;
 				align-items: center;
 				justify-content: center;
@@ -105,6 +105,9 @@
 						box-shadow: 10em 0 #FFF, -10em 0 #FFF2;
 					}
 				}
+			}
+			.last-message {
+				margin-bottom: 12em;
 			}
 		}
 	}

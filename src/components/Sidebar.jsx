@@ -42,10 +42,6 @@ const Sidebar = () => {
 				content: response.data.choices[0].text
 			}];
 		})
-		// setMessages(prevMessages => [...prevMessages, {
-		// 	sender: 'bot',
-		// 	content: response.data.choices[0].text
-		// }]);
 	}
 
 	useEffect(() => {
@@ -56,7 +52,7 @@ const Sidebar = () => {
 	}, [messages]);
 
 	useEffect(() => {
-		fetchOpenAiResponse("Tu es un chat bot. Envois moi un premier message.");
+		// fetchOpenAiResponse("Tu es un chat bot. Envois moi un premier message.");
 	}, []);
 
 	return (
@@ -68,21 +64,21 @@ const Sidebar = () => {
 				</div>
 				<div className="conv-content">
 					{messages.map((message, index) => {
+						const last = index === messages.length - 1 ? ' last-message' : '';
 						if (message.sender === 'user') {
 							return (
-								<div className="message user-message" key={index}>
+								<div className={"message user-message" + last} key={index}>
 									<p>{message.content}</p>
 								</div>
 							);
 						} else if (message.sender === 'loader'){
 							return (
-								<div className="message bot-message loader-message" key={index}>
-									{/* <p>{message.content}</p> */}
+								<div className={"message bot-message loader-message" + last} key={index}>
 								</div>
 							);
 						} else {
 							return (
-								<div className="message bot-message" key={index}>
+								<div className={"message bot-message" + last} key={index}>
 									<p>{message.content}</p>
 								</div>
 							);
